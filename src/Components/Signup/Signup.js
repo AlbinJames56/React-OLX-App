@@ -14,25 +14,12 @@ export default function Signup() {
   const [email,setEmail]=useState(''); //8
   const [phone,setPhone]=useState(''); //9
   const [password,setPassword]=useState(''); //10
-  const {firebase}=useContext(FirebaseContext) //21. using FIrebasecontext, destructure object (firebase)
+  const {firebase}=useContext(FirebaseContext) //21. using FIrebasecontext, deconstruct object (firebase)
 
   //11. function to handle submit
   const handleSubmit=(e)=>{
     e.preventDefault() // to prevent reloading
-    // 23.setting up authentication( creating user then return result)
-    firebase.auth().createUserWithEmailAndPassword(email,password).then((result)=>{
-      result.user.updateProfile({displayName:username}).then(()=>{
-        //25 pushing id username and phone to firebase
-        firebase.firestore().collection('users').add({
-          id:result.user.uid,
-          username:username,
-          phone:phone
-        }).then(()=>{
-          //28. redirecting to login by using usehistory hook
-          history.push('/login')
-        })
-      })
-    })
+    console.log(username)
   }
   return (
     <div>
