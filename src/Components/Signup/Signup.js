@@ -13,12 +13,15 @@ export default function Signup() {
   const [email,setEmail]=useState(''); //8
   const [phone,setPhone]=useState(''); //9
   const [password,setPassword]=useState(''); //10
-  const {firebase}=useContext(FirebaseContext) //21. using FIrebasecontext, deconstruct object (firebase)
+  const {firebase}=useContext(FirebaseContext) //21. using FIrebasecontext, destructure object (firebase)
 
   //11. function to handle submit
   const handleSubmit=(e)=>{
     e.preventDefault() // to prevent reloading
-    console.log(username)
+    // 23.
+    firebase.auth().createUserWithEmailAndPassword(email,password).then((result)=>{
+      result.user.updateProfile({displayName:username})
+    })
   }
   return (
     <div>
