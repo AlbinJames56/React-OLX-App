@@ -4,6 +4,7 @@ import './App.css';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 // 3. import SignUp
 import Signup from './Pages/Signup'
+import Login from './Pages/Login' //30
 
 /**
  * ?  =====Import Components=====
@@ -25,6 +26,11 @@ function App() {
           <Signup/>
         </Route>
           
+        {/* 29 login path */}
+        <Route path='/login'>
+          <Login/>
+        </Route>
+
       </Router>
     </div>
   );

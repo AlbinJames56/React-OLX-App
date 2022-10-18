@@ -19,7 +19,20 @@ export default function Signup() {
   //11. function to handle submit
   const handleSubmit=(e)=>{
     e.preventDefault() // to prevent reloading
-    console.log(username)
+    //23.setting up Authntification (create user and return result) 
+    firebase.auth().createUserWithEmailAndPassword(email,password).then((result)=>{
+      result.user.updateProfile({displayName:username}).then(()=>{
+        //25. push id,username,phone to firebase
+        firebase.firestore().collection('users').add({
+          id:result.user.uid,
+          username:username,
+          phone:phone
+        }).then(()=>{
+          //28. pushing to login with useHistory hooks
+          history.push('/login');
+        })
+      })
+    })
   }
   return (
     <div>
