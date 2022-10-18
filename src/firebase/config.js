@@ -3,7 +3,11 @@ import firebase from "firebase";
 
 
 import 'firebase/auth'; //22
+<<<<<<< HEAD
 import 'firebase/firestore'//24
+=======
+import 'firebase/firestore'
+>>>>>>> 85bc26e52af2c4b9fa90cba5e46342d5e6336695
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 //14. paste config file from firebase
 const firebaseConfig = {
