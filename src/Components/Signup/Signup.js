@@ -30,6 +30,8 @@ export default function Signup() {
         }).then(()=>{
           //28. pushing to login with useHistory hooks
           history.push('/login');
+        }).catch((error)=>{
+          alert(error.message)
         })
       })
     })
@@ -92,7 +94,7 @@ export default function Signup() {
           <br />
           <button>Signup</button>
         </form>
-        <a>Login</a>
+        <a href='Login'>Login</a>
       </div>
     </div>
   );
